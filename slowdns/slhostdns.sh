@@ -9,11 +9,10 @@ rm nsdomain
 
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c5)
 subsl=$(</dev/urandom tr -dc a-x0-9 | head -c5)
-DOMAIN=mantapxsl.my.id
-SUB_DOMAIN=onichan-${sub}.mantapxsl.my.id
-NS_DOMAIN=slowdns-${subsl}.mantapxsl.my.id
-CF_ID=slinfinity69@gmail.com
-CF_KEY=dd2c5e0313f122b3c1833471d469b1025f492
+DOMAIN=wendivpn.my.id
+NS_DOMAIN=${subsl}.wendivpn.my.id
+CF_ID=Bowowiwendi@gmail.com
+CF_KEY=dc7a32077573505cc082f4be752509a5c5a3e
 echo "IP=""$SUB_DOMAIN" >> /var/lib/crot/subdomain.conf
 set -euo pipefail
 IP=$(wget -qO- icanhazip.com);

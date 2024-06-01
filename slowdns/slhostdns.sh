@@ -10,9 +10,11 @@ rm nsdomain
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c5)
 subsl=$(</dev/urandom tr -dc a-x0-9 | head -c5)
 DOMAIN=wendivpn.my.id
+SUB_DOMAIN=${sub}.wendivpn.my.id
 NS_DOMAIN=${subsl}.wendivpn.my.id
 CF_ID=Bowowiwendi@gmail.com
 CF_KEY=dc7a32077573505cc082f4be752509a5c5a3e
+
 echo "IP=""$SUB_DOMAIN" >> /var/lib/crot/subdomain.conf
 set -euo pipefail
 IP=$(wget -qO- icanhazip.com);
@@ -64,5 +66,7 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
      --data '{"type":"NS","name":"'${NS_DOMAIN}'","content":"'${SUB_DOMAIN}'","ttl":120,"proxied":false}')
+echo "Host : $SUB_DOMAIN"
+echo $SUB_DOMAIN > /root/subdomain
 echo "Host NS : $NS_DOMAIN"
 echo $NS_DOMAIN > /root/nsdomain

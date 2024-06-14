@@ -10,8 +10,8 @@ rm nsdomain
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c5)
 subsl=$(</dev/urandom tr -dc a-x0-9 | head -c5)
 DOMAIN=wendivpn.my.id
-SUB_DOMAIN=${sub}.wendivpn.my.id
-NS_DOMAIN=${subsl}.wendivpn.my.id
+SUB_DOMAIN=sub-${sub}.wendivpn.my.id
+NS_DOMAIN=ns-${subsl}.wendivpn.my.id
 CF_ID=Bowowiwendi@gmail.com
 CF_KEY=dc7a32077573505cc082f4be752509a5c5a3e
 
